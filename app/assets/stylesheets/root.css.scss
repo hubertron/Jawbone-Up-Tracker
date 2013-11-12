@@ -1,0 +1,79 @@
+// Place all the styles related to the Root controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.login-body {
+  min-height: 100%;
+  padding-top: 100px;
+  font-family: Helvetica, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  background: url(/assets/background2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover; /* For WebKit*/
+  -moz-background-size: cover;    /* Mozilla*/
+  -o-background-size: cover;      /* Opera*/
+  background-size: cover;
+}
+
+.image-graph {
+  background-image:url('/assets/logo.png');
+  width:80px;
+  height:80px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 20px;
+}
+
+.login {
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+  border: 1px solid #f4f4f2;
+  width:300px;
+  background-color: #626262;
+  background-color: rgba(98, 98, 98, 0.4);
+  background-color:#fff;
+  height: 270px;
+}
+
+.login h2 {
+  color:#f45952;
+  font-family: 'Droid Serif', serif;
+  font-size:48px;
+  margin:0px;
+  margin-top:10px;
+  margin-bottom:40px;
+}
+
+.login h5 {
+  color:#000;
+  font-size:12px;
+}
+
+.login-button {
+  margin-left:auto;
+  margin-right:auto;
+  height: 200px;
+  width: 300px;
+  font-family: 'Droid Serif', serif;
+  font-size:17px;
+  padding: 10px 15px;
+  text-align:center;
+  color:#fff;
+  text-decoration:none;
+  background-color:#2e8ecd;
+}
+
+.login-button:hover {
+  cursor:pointer;
+}
+
+.line {
+  height:1px;
+  margin-bottom: 15px;
+  color:#ebe6e5;
+  background-color:#ebe6e5;
+  margin-bottom:20px;
+}
