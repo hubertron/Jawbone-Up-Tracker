@@ -19,7 +19,9 @@ module Upstats
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.up_app_client_id = "XYlqYYlhuoo"
-    config.up_app_secret = "8b76b279575b3c46d3094e19ed99a47d6891f54a"
+    #
+    #Configuration settings after setting up a app on the Jawbone UP site.
+    config.up_app_client_id = ENV[:up_app_client_id] #"XYlqYYlhuoo"
+    config.up_app_secret = ENV[:up_app_secet] #"8b76b279575b3c46d3094e19ed99a47d6891f54a"
   end
 end
