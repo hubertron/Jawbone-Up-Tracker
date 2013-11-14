@@ -5,6 +5,7 @@ Upstats::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'root#index'
   get '/authorize' => 'root#authorize'
+  get '/home' => 'root#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

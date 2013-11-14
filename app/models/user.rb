@@ -4,16 +4,19 @@ class User < ActiveRecord::Base
     jawbone_profile = JawboneUp.new.profile(token)
     user = User.where(:up_user_xid => jawbone_profile.xid).first
     if user.blank?
-      unless jawbone_profile.blank?
-	User.create( :first_name      => jawbone_profile.first_name,
-		     :last_name       => jawbone_profile.last_name,
-		     :up_user_xid     => jawbone_profile.xid,
-		     :up_access_token => token,
-		     :up_image        => jawbone_profile.image_url)
-
-      end
+      User.create_user_from_jawbone(profile:jawbone_profile, token:token)
     else
       user
     end
+  end
+
+  def self.create_user_from_jawbone(profile:nil, token:nil)
+    return nil if profile.nil?
+
+    User.create( :first_name      => profile.first_name,
+		 :last_name       => profile.last_name,
+		 :up_user_xid     => profile.xid,
+		 :up_access_token => token,
+		 :up_image        => profile.image_url)
   end
 end
