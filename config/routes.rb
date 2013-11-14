@@ -6,6 +6,7 @@ Upstats::Application.routes.draw do
   root 'root#index'
   get '/authorize' => 'root#authorize'
   get '/home' => 'root#home'
+  get '/logout' => 'root#logout'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
