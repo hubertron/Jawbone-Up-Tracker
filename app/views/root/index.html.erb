@@ -3,6 +3,6 @@
     <div class='image-graph'></div>
     <h2>UpStats</h2>
     <div class='line'></div>
-    <a class='login-button' href='https://jawbone.com/auth/oauth2/auth?response_type=code&client_id=<%= Rails.configuration.up_app_client_id %>&scope=extended_read%20sleep_read%20friends_read%20cardiac_read&redirect_uri=http://localhost:3000/authorize'>Connect Using Jawbone Up</a>
+    <a class='login-button' href='https://jawbone.com/auth/oauth2/auth?response_type=code&client_id=<%= Rails.configuration.up_app_client_id %>&scope=extended_read%20sleep_read%20friends_read%20cardiac_read&redirect_uri=<%= Rails.configuration.url %>/authorize'>Connect Using Jawbone Up</a>
   </div>
 </div>
