@@ -10,7 +10,7 @@ html, body {
   min-height: 100%;
   padding-top: 100px;
   font-family: Helvetica, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-  background: url(/assets/background2.jpg) no-repeat center center fixed;
+  background: url(<%= asset_path 'background2.jpg' %>) no-repeat center center fixed;
   -webkit-background-size: cover; /* For WebKit*/
   -moz-background-size: cover;    /* Mozilla*/
   -o-background-size: cover;      /* Opera*/
