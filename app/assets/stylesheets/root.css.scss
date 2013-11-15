@@ -18,7 +18,7 @@ html, body {
 }
 
 .image-graph {
-  background-image:url('/assets/logo.png');
+  background-image:asset-data-url('/assets/logo.png');
   width:80px;
   height:80px;
   margin-left:auto;
