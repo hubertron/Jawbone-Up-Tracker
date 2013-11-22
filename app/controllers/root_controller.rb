@@ -2,6 +2,7 @@ require './lib/jawbone_up'
 
 class RootController < ApplicationController
   before_filter :authenticate_user, :except => [:index, :authorize]
+  layout "user", only: [:home]
 
   def index
   end
@@ -19,7 +20,7 @@ class RootController < ApplicationController
   end
 
   def home
-
+    @moves = JawboneUp.new.moves(@current_user.up_access_token)
   end
 
   def logout

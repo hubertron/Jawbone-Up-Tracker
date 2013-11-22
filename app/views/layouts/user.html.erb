@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upstats</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	  <span class="sr-only">Toggle navigation</span>
+	  <span class="icon-bar"></span>
+	  <span class="icon-bar"></span>
+	  <span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="#"><%= image_tag 'logo_small.png' %> UpStats</a>
+      </div>
+      <div class="navbar-collapse collapse">
+	<div class="navbar-form navbar-right welcome">
+	  <div class="nav-avatar">
+	    <img class='avatar' src='<%= @current_user.avatar %>'>
+	  </div>
+	  <div class="nav-user">
+	    Welcome <%= @current_user.first_name %> <%= @current_user.last_name %>
+	    <div class="signout">
+	      <%= link_to 'Sign Out?', 'logout' %>
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="container-body">
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>
+

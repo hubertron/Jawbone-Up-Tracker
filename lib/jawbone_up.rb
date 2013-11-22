@@ -66,6 +66,100 @@ class JawboneProfile < JawboneRequest
   end
 end
 
+
+class JawboneMovesToday
+  attr_accessor :activity
+
+  def initialize(activity)
+    @activity = activity
+  end
+
+  def steps
+    @activity["details"]["steps"]
+  end
+
+  def last_updated
+    Time.at(@activity["time_updated"]).strftime("%m/%d/%Y%l:%M%P")
+  end
+
+  def miles
+    "%0.2f" % (@activity["details"]["km"] * 0.621371)
+  end
+
+  def km
+    "%0.2f" % (@activity["details"]["km"])
+  end
+
+  def total_burn
+    format_delimiter(@activity["details"]["bmr"] + @activity["details"]["calories"])
+  end
+
+  def active_burn
+    format_delimiter(@activity["details"]["calories"])
+  end
+
+  def resting_burn
+    format_delimiter(@activity["details"]["bmr"])
+  end
+
+  def active
+    format_seconds(@activity["details"]["active_time"])
+  end
+
+  def longest_active
+    format_seconds(@activity["details"]["longest_active"])
+  end
+
+  def longest_idle
+    format_seconds(@activity["details"]["longest_idle"])
+  end
+
+  def format_delimiter(number)
+    parts = number.to_s.split('.')
+    parts[0].gsub!(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1,")
+    parts[0]
+  end
+
+  def format_seconds(seconds)
+    mm, ss = seconds.divmod(60)
+    hh, mm = mm.divmod(60)
+    dd, hh = hh.divmod(24)
+
+    format = ""
+    format += "#{dd}d "  unless dd == 0
+    format += "#{hh}h " unless hh == 0
+    format += "#{mm}m " unless mm == 0
+    format += "#{ss}s " unless ss == 0
+    format
+  end
+end
+
+class JawboneMoves < JawboneRequest
+
+  attr_accessor :json
+
+  END_POINT_URL = "/nudge/api/users/@me/moves"
+
+  def initialize(token)
+    response = jawbone_http(moves_url).request(jawbone_request_with_token(moves_url, token))
+    @json = jawbone_parse_json(response)
+    @json
+  end
+
+  def moves_url
+    API_URL + END_POINT_URL
+  end
+
+  def today
+    JawboneMovesToday.new(@json["data"]["items"].first)
+  end
+
+  def title
+    puts "JSON FOR MOVES"
+    puts @json.inspect
+  end
+end
+
 class JawboneAuthorize < JawboneRequest
   attr_accessor :code
 
@@ -81,6 +175,7 @@ class JawboneAuthorize < JawboneRequest
   def authorization_url
     API_URL + "auth/oauth2/token?client_id=#{Rails.configuration.up_app_client_id}&grant_type=authorization_code&code=#{self.code}&client_secret=#{Rails.configuration.up_app_secret}"
   end
+
 end
 
 class JawboneUp
@@ -97,5 +192,9 @@ class JawboneUp
 
   def profile(token)
     JawboneProfile.new(token)
+  end
+
+  def moves(token)
+    JawboneMoves.new(token)
   end
 end

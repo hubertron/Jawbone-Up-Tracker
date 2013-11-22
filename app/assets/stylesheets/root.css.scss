@@ -4,6 +4,8 @@
 html, body {
   height: 100%;
   margin: 0;
+  font-family: 'Droid Serif', serif;
+
 }
 
 .login-body {
@@ -83,4 +85,8 @@ html, body {
   font-family: 'Droid Serif', serif;
   color: #fff;
   text-decoration:none;
+}
+
+.container-body {
+  padding-top: 70px;
 }

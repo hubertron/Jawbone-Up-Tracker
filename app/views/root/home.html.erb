@@ -1,4 +1,21 @@
-Welcome
 
-Here is your user: <%= @current_user.inspect %>
+<div class="page-header">
+  <h1>Welcome <%= @current_user.first_name %> <%= @current_user.last_name %></h1>
+</div>
+
+
+<h4>Latest Activity on <%= @moves.today.last_updated %></h4>
+
+Total Miles <%= @moves.today.miles %> <br>
+Number of Steps <%= @moves.today.steps %>  <br>
+Total Burn <%= @moves.today.total_burn %>   <br>
+Active Burn <%= @moves.today.active_burn %>  <br>
+Resting Burn <%= @moves.today.resting_burn %>  <br>
+Longest Idle <%= @moves.today.longest_idle %>  <br>
+Longest Active Time <%= @moves.today.longest_active %>  <br>
+Active Time <%= @moves.today.active %>  <br>
+
+<%= debug(@moves.today) %>
+
+
 
