@@ -74,12 +74,20 @@ class JawboneMovesToday
     @activity = activity
   end
 
+  def started_at
+    Time.at(@activity["time_created"]).strftime("%l:%M%P")
+  end
+
+  def ended_at
+    Time.at(@activity["time_completed"]).strftime("%l:%M%P")
+  end
+
   def steps
     @activity["details"]["steps"]
   end
 
-  def last_updated
-    Time.at(@activity["time_updated"]).strftime("%m/%d/%Y%l:%M%P")
+  def date
+    DateTime.parse("#{@activity["date"]}").strftime("%m/%d/%Y")
   end
 
   def miles
@@ -112,6 +120,10 @@ class JawboneMovesToday
 
   def longest_idle
     format_seconds(@activity["details"]["longest_idle"])
+  end
+
+  def snapshot
+    "http://jawbone.com/#{@activity["snapshot_image"]}"
   end
 
   def format_delimiter(number)

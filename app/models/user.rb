@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
     }
   end
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   def avatar
     "http://jawbone.com/#{self.up_image}"
   end
