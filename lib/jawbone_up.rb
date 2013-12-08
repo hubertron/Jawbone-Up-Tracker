@@ -2,6 +2,7 @@ require 'jawbone/jawbone_request'
 require 'jawbone/jawbone_authorize'
 require 'jawbone/jawbone_profile'
 require 'jawbone/jawbone_moves'
+require 'jawbone/jawbone_sleep'
 
 class JawboneUp
   attr_accessor :access_token, :xid
@@ -21,5 +22,9 @@ class JawboneUp
 
   def moves(token)
     JawboneMoves.new(token)
+  end
+
+  def sleep(token)
+    JawboneSleep.new(token)
   end
 end

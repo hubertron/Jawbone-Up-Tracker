@@ -20,7 +20,9 @@ class RootController < ApplicationController
   end
 
   def home
-    @moves = JawboneUp.new.moves(@current_user.up_access_token)
+    @jawbone = JawboneUp.new
+    @moves   = @jawbone.moves(@current_user.up_access_token)
+    @sleep   = @jawbone.sleep(@current_user.up_access_token)
   end
 
   def logout

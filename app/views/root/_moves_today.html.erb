@@ -1,0 +1,47 @@
+
+<div class="move-stats">
+  <h3>Moves <%= @moves.today.date %></h3>
+  <div class="stats-from-to"> <%= @moves.today.started_at %> - <%= @moves.today.ended_at %></div>
+  <div class="stat-image">
+    <img src="<%= @moves.today.snapshot %>" border='0'>
+  </div>
+  <div class="stat-data">
+    <div class="stats-bar">
+      <div class="stats">
+	<div class="stats-header">Number Of Steps</div>
+	<div class="stats-body"><%= @moves.today.steps %></div>
+      </div>
+      <div class="stats">
+	<div class="stats-header">Total Miles</div>
+	<div class="stats-body"><%= @moves.today.miles %></div>
+      </div>
+      <div class="stats">
+	<div class="stats-header">Total Burned</div>
+	<div class="stats-body"><%= @moves.today.total_burn %></div>
+      </div>
+      <div class="stats">
+	<div class="stats-header">Longest Active</div>
+	<div class="stats-body"><%= @moves.today.longest_active %></div>
+      </div>
+    </div>
+    <div class="other-stats-bar">
+      <div class="stats">
+	<div class="stats-header">Active Burn</div>
+	<div class="stats-body"><%= @moves.today.active_burn %></div>
+      </div>
+      <div class="stats">
+	<div class="stats-header">Resting Burn</div>
+	<div class="stats-body"><%= @moves.today.resting_burn %></div>
+      </div>
+      <div class="stats">
+	<div class="stats-header">Longest Idle</div>
+	<div class="stats-body"><%= @moves.today.longest_idle %></div>
+      </div>
+      <div class="stats">
+	<div class="stats-header">Active Time</div>
+	<div class="stats-body"><%= @moves.today.active %></div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

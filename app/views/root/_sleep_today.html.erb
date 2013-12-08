@@ -1,0 +1,48 @@
+
+<div class="move-stats">
+  <h3>Sleep <%= @sleep.today.date %></h3>
+  <div class="stats-from-to"> <%= @sleep.today.started_at %> - <%= @sleep.today.ended_at %></div>
+  <div class="stat-image">
+    <img src="<%= @sleep.today.snapshot %>" border='0'>
+  </div>
+  <div class="stat-data">
+    <div class="stats-bar">
+      <div class="stats">
+	<div class="stats-header">Light Sleep</div>
+	<div class="stats-body"><%= @sleep.today.light_sleep %></div>
+      </div>
+      <div class="stats">
+	<div class="stats-header">Deep Sleep</div>
+	<div class="stats-body"><%= @sleep.today.deep_sleep %></div>
+      </div>
+      <div class="stats">
+	<div class="stats-header">Awake For</div>
+	<div class="stats-body"><%= @sleep.today.awake %></div>
+      </div>
+      <div class="stats">
+	<div class="stats-header">Fell Asleep In</div>
+	<div class="stats-body"><%= @sleep.today.fell_asleep_in %></div>
+      </div>
+    </div>
+    <div class="other-stats-bar">
+      <div class="stats">
+	<div class="stats-header">Sleep Duration</div>
+	<div class="stats-body"><%= @sleep.today.duration %></div>
+      </div>
+      <div class="stats">
+	<div class="stats-header">Asleep Time</div>
+	<div class="stats-body"><%= @sleep.today.asleep_time %></div>
+      </div>
+      <div class="stats">
+	<div class="stats-header">Started At</div>
+	<div class="stats-body"><%= @sleep.today.started_at %></div>
+      </div>
+      <div class="stats">
+	<div class="stats-header">Awoke At</div>
+	<div class="stats-body"><%= @sleep.today.awake_time %></div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
