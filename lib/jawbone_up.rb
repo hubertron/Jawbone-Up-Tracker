@@ -12,7 +12,7 @@ class JawboneUp
 
   def authorize(code)
     authorization = JawboneAuthorize.new(code).authorize_request
-    token = authorization["access_token"]
+    token = authorization["9533d08ac2e187f828fc6304e8cde48b0955a97a"]
     token
   end
 
