@@ -20,6 +20,6 @@ test:
 
 production:
   adapter: postgresql
-  database: my_datbase_production
+  database: HEROKU_POSTGRESQL_VIOLET_URL
   pool: 5
   timeout: 5000
