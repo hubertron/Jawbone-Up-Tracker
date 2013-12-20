@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     User.create(user_attributes(profile:profile, token:token))
   end
 
-  def user_attributes(profile:nil, token:nil)
+  def self.user_attributes(profile:nil, token:nil)
     {
       :first_name      => profile.first_name,
       :last_name       => profile.last_name,

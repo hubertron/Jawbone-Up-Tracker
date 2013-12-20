@@ -21,6 +21,7 @@ gem 'oauth2'
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'sqlite3'
+  gem 'debugger'
 end
 
 group :production do

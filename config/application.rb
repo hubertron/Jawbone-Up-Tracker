@@ -22,7 +22,7 @@ module Upstats
     #
     #Configuration settings after setting up a app on the Jawbone UP site.
     #
-    config.up_app_client_id = ENV['up_app_client_id']
-    config.up_app_secret = ENV['up_app_secet']
+    config.up_app_client_id = 'bPA_ntlT6Vs'
+    config.up_app_secret = '9533d08ac2e187f828fc6304e8cde48b0955a97a'
   end
 end
